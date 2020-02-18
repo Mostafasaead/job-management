@@ -39,5 +39,8 @@ public class Job implements Runnable {
 	public JobPriority getJobPriority() {
 		return jobPriority;
 	}
+	public JobName getJobName() {
+		return jobName;
+	}
 
 }

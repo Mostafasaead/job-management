@@ -1,11 +1,11 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import dto.JobName;
 import dto.JobPriority;
 import manager.JobManager;
 import service.Job;
 
-class JobManagementTest {
+public class JobManagementTest {
 
 	private static int POOL_SIZE = 1;
 	private static int QUEUE_SIZE = 10;
