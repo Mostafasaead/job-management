@@ -1,14 +1,15 @@
 package service;
 
+import dto.JobName;
 import dto.JobPriority;
 import util.EmailUtility;
 import util.JsonReaderUtility;
 
 public class Job implements Runnable {
-	private String jobName;
+	private JobName jobName;
 	private JobPriority jobPriority;
 
-	public Job(String jobName, JobPriority jobPriority) {
+	public Job(JobName jobName, JobPriority jobPriority) {
 		this.jobName = jobName;
 		this.jobPriority = jobPriority;
 	}
@@ -19,15 +20,13 @@ public class Job implements Runnable {
 		// get the service name and call the service from the utility.
 		try {
 			switch (jobName) {
-			case "SEND_EMAIL":
+			case SEND_EMAIL:
 				System.out.println("sending email job");
 				EmailUtility.sendEmail();
 				break;
-			case "STREAM_FILE":
+			case STREAM_FILE:
 				System.out.println("streaming file job");
-
 				JsonReaderUtility.readJsonFromFile();
-
 				break;
 			default:
 				break;
@@ -37,20 +36,8 @@ public class Job implements Runnable {
 		}
 	}
 
-	public String getJobName() {
-		return jobName;
-	}
-
-	public void setJobName(String jobName) {
-		this.jobName = jobName;
-	}
-
 	public JobPriority getJobPriority() {
 		return jobPriority;
-	}
-
-	public void setJobPriority(JobPriority jobPriority) {
-		this.jobPriority = jobPriority;
 	}
 
 }
